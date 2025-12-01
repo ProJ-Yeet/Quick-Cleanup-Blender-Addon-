@@ -4,6 +4,7 @@ Quick Mesh Cleanup+ (All-in-One) is a Blender addon that performs one-click, bat
 # Features
 ### Presets
 Includes presets to choose from that contains a few game ready default optimizations or lets you save your own custom preset of your choice
+
 <img width="524" height="162" alt="image" src="https://github.com/user-attachments/assets/8431141e-7585-4ba6-b819-8a0ea705fbcc" />
 
 ### Options
