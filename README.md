@@ -18,7 +18,7 @@ All the options are given in the image below and all are executed on pressing th
 <img width="518" height="498" alt="image" src="https://github.com/user-attachments/assets/f591eb5f-8136-48a3-a26c-a4c5be3ba77a" />
 
 ### Scope
-Choose whether the cleanup runs on the **Selected** objects, every **Visible** object, or **All in Scene**.
+Choose whether the cleanup runs on the **Selected** objects, every **Visible** object, or **All in Scene**. The panel shows how many objects and vertices the current scope actually covers, so you can see what a run will cost before starting it — **All in Scene** includes meshes hidden inside collections that are switched off, which is usually why a run takes longer than expected.
 
 ### Scene Data
 - **Purge All Unused Data** — recursively deletes every data-block with no users (meshes, materials, images, node groups, actions and so on) and reports how many went.
@@ -38,6 +38,13 @@ v4.0.0 stays in Object Mode and drives BMesh directly instead of toggling Edit M
 
 The old build got disproportionately slower as objects were added (4x the objects cost 25x the time). v4 scales linearly.
 
+### Why Object Mode BMesh, and not one big Edit Mode pass
+For v4.1.0 the obvious next step was tried and measured: select every object, enter Edit Mode once, select all vertices and run each operation a single time, the way you would by hand. On real production scenes it came out **slower** — about 1.2-1.5x on Game-Ready and 2x on Heavy — so it was not shipped.
+
+Once per-object mode switching is gone, what remains is the cost of Blender's own geometry operations, which is identical either way. A single Edit Mode session only adds per-object edit-mesh construction and selection flushes on top. It also silently skips anything not currently visible: on one test scene, "select all, Tab" picked up 8 of 105 mesh objects.
+
+If a run feels slow, the two things that actually dominate are the **Scope** (how many objects it covers, including hidden ones) and **Fill Holes**, which on a dense scene accounted for 80% of a Heavy run on its own.
+
 # Installation
 - Download the addon ZIP from the GitHub Releases page.
 - In Blender, go to Edit → Preferences → Add-ons → Install.
@@ -51,7 +58,7 @@ Requires Blender 4.2 or newer. Tested on 4.5 LTS and 5.1.
 - Implemented in Python using the Blender Python API (bpy).
 - Uses BMesh for all topology and normals work, run in Object Mode so no per-object mode switching is needed.
 - Object-level operators (transforms, origins, shading, modifier application) are batched into one call for the whole selection.
-- Meshes shared between objects are cleaned once, and meshes with shape keys are routed through a single multi-object Edit Mode session so their keys survive.
+- Meshes shared between objects are cleaned once, and meshes with shape keys are routed through a single multi-object Edit Mode session so their keys survive — collection and object visibility is temporarily revealed for that session and restored afterwards, so shape-keyed meshes in hidden collections are no longer skipped.
 - Stores configuration as Scene properties so settings persist with your .blend file; the Custom preset lives in add-on preferences so it persists across files.
 
 # Credits
