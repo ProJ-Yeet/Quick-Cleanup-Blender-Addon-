@@ -1,5 +1,6 @@
 <p>
   <a href="https://github.com/ProJ-Yeet/Quick-Cleanup-Blender-Addon-/releases/latest"><img alt="Download the latest release" src="https://img.shields.io/badge/download-latest-e8743b?style=for-the-badge"></a>
+  <a href="https://github.com/ProJ-Yeet/Quick-Cleanup-Blender-Addon-/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/ProJ-Yeet/Quick-Cleanup-Blender-Addon-/total?style=for-the-badge&label=downloads&color=2ea44f"></a>
   <a href="https://ko-fi.com/projyeet"><img alt="Support me on Ko-fi" src="https://ko-fi.com/img/githubbutton_sm.svg" height="28"></a>
 </p>
 <p>
