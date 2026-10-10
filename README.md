@@ -1,3 +1,15 @@
+<p>
+  <a href="https://github.com/ProJ-Yeet/Quick-Cleanup-Blender-Addon-/releases/latest"><img alt="Download the latest release" src="https://img.shields.io/badge/download-latest-e8743b?style=for-the-badge"></a>
+  <a href="https://ko-fi.com/projyeet"><img alt="Support me on Ko-fi" src="https://ko-fi.com/img/githubbutton_sm.svg" height="28"></a>
+</p>
+<p>
+  <a href="https://www.youtube.com/@proj-yeet"><img alt="YouTube" src="https://img.shields.io/badge/youtube-ProJ--Yeet-ff0000?style=for-the-badge&logo=youtube&logoColor=white"></a>
+  <a href="https://discord.gg/epic-unity-rework"><img alt="Discord" src="https://img.shields.io/badge/discord-join%20us-5865f2?style=for-the-badge&logo=discord&logoColor=white"></a>
+</p>
+
+### Why support it
+The addon is free and will stay free. It is written by one person in spare time, and every speed-up in it was measured on real scenes before it shipped. If it has saved you a few hundred clicks of cleanup, a coffee on [Ko-fi](https://ko-fi.com/projyeet) pays for the hours behind the next version. Never required, always appreciated. Ideas and bug reports are just as welcome on [Discord](https://discord.gg/epic-unity-rework).
+
 # Description
 Quick Mesh Cleanup+ (All-in-One) is a Blender addon that performs one-click, batch mesh cleanup on multiple selected objects using presets, fast BMesh operations, and an organized, collapsible UI for topology, normals, shading, and transforms.
 
